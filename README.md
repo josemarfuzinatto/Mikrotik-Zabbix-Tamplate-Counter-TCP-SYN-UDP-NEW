@@ -13,7 +13,14 @@ O Tamplate é feito para Zabbix 7 e cria uma Dashboard para o equipamento com os
 ## 1 - Habilitar uma comunidade SNMP com permissão de escrita 
 (IMPORTANTE LIMITAR ao IP do Zabbix)
 
-## 2 - Criar o Script Conforme abaixo:
+## 2 - Criar as regras de firewall filter no RouterOS que farão a coleta
+```
+/ip firewall filter
+add action=passthrough chain=forward comment=MONITOR_TCP_SYN_COUNT connection-state=new protocol=tcp tcp-flags=syn
+add action=passthrough chain=forward comment=MONITOR_UDP_NEW_COUNT connection-state=new protocol=udp
+```
+
+## 3 - Criar o Script Conforme abaixo:
 Use o nome que quiser, eu chamo de "get_counters_tcp_udp_json"
 # Script RouterOS:
 ```
@@ -68,10 +75,13 @@ verá um resultado como: <br>
 ```{"MONITOR_TCP_SYN_COUNT": {"packets": 708555894, "bytes": 43545004564},"MONITOR_UDP_NEW_COUNT": {"packets": 32772666966, "bytes": 4195821380659}```
 
 
-## 3 - Identificar o correto ID do Script com SNMP Walk:
+## 4 - Identificar o correto ID do Script com SNMP Walk:
 snmpwalk -v2c -c comunity <ip> 1.3.6.1.4.1.14988.1.1.8.1.1.2
 
-## 4 - Substituir na macro {$IDSCRIPT} pelo ID correspondente ao adicionar o script no Host. 
+## 5 - Importar o tamplate para o Zabbix
+Feito para Zabbix 7.
+
+## 6 - Adicionar o Host criando a macro {$IDSCRIPT} com o ID correspondente ao Script. 
 (pode criar o item macro no host mesmo) e usar a entrada "{$IDSCRIPT}" apontando para o value X (numero encontrado do script).
 
 Em geral segue a lógica de:
