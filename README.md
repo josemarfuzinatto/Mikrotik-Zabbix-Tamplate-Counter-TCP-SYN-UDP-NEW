@@ -93,3 +93,6 @@ SE teve algum script excluido o routeros tmb conta o ID dele e não reutiliza ma
 
 ### PASSO A PASSO COMPLETO:
 https://github.com/user-attachments/assets/2ff2ff3a-7182-4e63-ac5f-89bdab45347e
+
+### Host Dashboard:
+<img width="1920" height="1523" alt="Image" src="https://github.com/user-attachments/assets/36590a45-a5d0-4c4f-8b18-f2f08e3f95a1" />
