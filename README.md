@@ -1,4 +1,4 @@
-# Tamplate Contador de pacotes TCP/SYN e UDP/NEW
+# Tamplate Contador de Pacotes TCP/SYN e UDP/NEW
 Basicamente são pacotes de abertura de novas conexões.
 Contando eles é possivel se ter um panorama geral de quantidade de conexões TCP e UDP em PPS e Bytes.
 
