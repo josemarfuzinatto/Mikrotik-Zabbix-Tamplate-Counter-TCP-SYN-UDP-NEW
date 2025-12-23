@@ -70,13 +70,13 @@ Use o nome que quiser, eu chamo de "get_counters_tcp_udp_json"
 # Imprime o JSON final
 :put $output
 ```
-Para testar se deu boa, pode rodar direto no terminal do mikrotik: ```/system/script/run get_counters_syn_new_json```
+Para testar se deu boa, pode rodar direto no terminal do mikrotik: ```/system/script/run get_counters_tcp_udp_json```
 verá um resultado como: <br>
 ```{"MONITOR_TCP_SYN_COUNT": {"packets": 708555894, "bytes": 43545004564},"MONITOR_UDP_NEW_COUNT": {"packets": 32772666966, "bytes": 4195821380659}```
 
 
 ## 4 - Identificar o correto ID do Script com SNMP Walk:
-snmpwalk -v2c -c comunity <ip> 1.3.6.1.4.1.14988.1.1.8.1.1.2
+snmpwalk -v2c -c comunity ip 1.3.6.1.4.1.14988.1.1.8.1.1.2
 
 ## 5 - Importar o tamplate para o Zabbix
 Feito para Zabbix 7.
@@ -87,4 +87,9 @@ Feito para Zabbix 7.
 Em geral segue a lógica de:
 1.3.6.1.4.1.14988.1.1.8.1.1.2.1 = primeiro script do mikrotik <br>
 1.3.6.1.4.1.14988.1.1.8.1.1.2.2 = segundo script <br>
-1.3.6.1.4.1.14988.1.1.8.1.1.2.3 = terceiro, e asim por diante.
+1.3.6.1.4.1.14988.1.1.8.1.1.2.3 = terceiro, e asim por diante. <br>
+SE teve algum script excluido o routeros tmb conta o ID dele e não reutiliza mais. Então, por exemplo, se o terceiro e quarto scripts que existiam e foram excluidos, o ID será o 5.
+
+
+### PASSO A PASSO COMPLETO:
+https://github.com/user-attachments/assets/2ff2ff3a-7182-4e63-ac5f-89bdab45347e
