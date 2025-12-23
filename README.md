@@ -100,6 +100,8 @@ SE teve algum script excluido o routeros tmb conta o ID dele e não reutiliza ma
 
 <b>Veja o video abaixo do passo a passo completo.</b> <br><br>
 
+<hr>
+
 ## English
 # TCP/SYN and UDP/NEW Packet Counter Template
 SSYN/TCP and UDP/NEW are basically packets that initiate new connections for their respective protocols.
@@ -200,7 +202,7 @@ In general, it follows the logic of:
 1.3.6.1.4.1.14988.1.1.8.1.1.2.3 = third, and so on <br>
 IF a script was deleted, RouterOS also counts its ID and does not reuse it. So, for example, if the third and fourth scripts that existed were deleted, the ID will be 5.
 
-<br><br><br>
+<hr>
 
 ### PASSO A PASSO COMPLETO / STEP BY STEP:
 https://github.com/user-attachments/assets/2ff2ff3a-7182-4e63-ac5f-89bdab45347e
