@@ -12,6 +12,13 @@ O Tamplate é feito para Zabbix 7 e cria uma Dashboard para o equipamento com os
 ### PASSO A PASSO:
 ## 1 - Habilitar uma comunidade SNMP com permissão de escrita 
 (IMPORTANTE LIMITAR ao IP do Zabbix)
+```
+/snmp community
+add addresses=100.100.100.50/32 name=zbx_wr1te write-access=yes
+/snmp
+set contact=xxx@exemplo.com.br enabled=yes location=Chapeco-SC
+``` 
+Substitua ```100.100.100.50/32``` pelo IP do seu Zabbix.
 
 ## 2 - Criar as regras de firewall filter no RouterOS que farão a coleta
 ```
